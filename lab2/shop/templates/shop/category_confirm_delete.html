@@ -1,0 +1,12 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Видалення категорії{% endblock %}
+
+{% block content %}
+<h2>Видалити категорію "{{ category.name }}"?</h2>
+
+<form method="post">{% csrf_token %}
+    <button type="submit">Так, видалити</button>
+    <a href="{% url 'category_list' %}">Скасувати</a>
+</form>
+{% endblock %}

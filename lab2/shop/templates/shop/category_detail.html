@@ -1,0 +1,15 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Деталі категорії{% endblock %}
+
+{% block content %}
+<h2>{{ category.name }}</h2>
+
+<p>Опис: {{ category.description }}</p>
+
+<p>
+    <a href="{% url 'category_update' category.pk %}">Редагувати</a> |
+    <a href="{% url 'category_delete' category.pk %}">Видалити</a> |
+    <a href="{% url 'category_list' %}">Назад до списку</a>
+</p>
+{% endblock %}

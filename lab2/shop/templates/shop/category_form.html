@@ -1,0 +1,11 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}{% if object %}Редагувати категорію{% else %}Додати категорію{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Редагувати{% else %}Додати{% endif %}</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зберегти</button>
+</form>
+{% endblock %}

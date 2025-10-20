@@ -1,19 +1,38 @@
 {% extends 'shop/layout.html' %}
 
-{% block title %}Список товарів{% endblock %}
+{% block title %}Товари{% endblock %}
 
 {% block content %}
 <h2>Список товарів</h2>
+
+
+<p><a href="{% url 'product_create' %}">Додати новий товар</a></p>
+
 <ul>
     {% for product in products %}
         <li>
-            <strong>{{ product.name }}</strong> — {{ product.price }} грн
-            <br>Категорія: {{ product.category.name }}
+            <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> — {{ product.price }} грн
+            | <a href="{% url 'product_update' product.pk %}">Редагувати</a>
+            | <a href="{% url 'product_delete' product.pk %}">Видалити</a>
         </li>
     {% empty %}
         <li>Немає товарів</li>
     {% endfor %}
 </ul>
+
+
+{% if is_paginated %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+    {% endif %}
+    <span>Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Наступна</a>
+    {% endif %}
+  </div>
+{% endif %}
+
 {% endblock %}
 
 
