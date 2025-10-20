@@ -1,0 +1,19 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Список товарів{% endblock %}
+
+{% block content %}
+<h2>Список товарів</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            <strong>{{ product.name }}</strong> — {{ product.price }} грн
+            <br>Категорія: {{ product.category.name }}
+        </li>
+    {% empty %}
+        <li>Немає товарів</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
