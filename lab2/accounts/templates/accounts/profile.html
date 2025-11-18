@@ -1,0 +1,15 @@
+{% extends 'shop/layout.html' %}
+{% block content %}
+<h2>Мій профіль</h2>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h3>Облікові дані</h3>
+  {{ u_form.as_p }}
+
+  <h3>Профіль</h3>
+  {{ p_form.as_p }}
+
+  <button type="submit">Зберегти</button>
+</form>
+{% endblock %}

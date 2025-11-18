@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    'accounts', 
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'no-reply@example.com'
+LOGIN_URL = 'login'               # куди перекидає неавторизованого
+LOGIN_REDIRECT_URL = 'shop_index' # після логіну
+LOGOUT_REDIRECT_URL = 'login'     # після логауту
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'   # якщо BASE_DIR — Path

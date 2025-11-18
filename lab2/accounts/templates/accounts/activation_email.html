@@ -1,0 +1,4 @@
+Привіт {{ user.username }}!
+
+Щоб активувати обліковий запис, перейдіть за посиланням:
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
