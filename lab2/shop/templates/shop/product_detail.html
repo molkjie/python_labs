@@ -14,4 +14,11 @@
     <a href="{% url 'product_delete' product.pk %}">Видалити</a> |
     <a href="{% url 'product_list' %}">Назад до списку</a>
 </p>
+
+<form action="{% url 'cart_add' product.id %}" method="post">
+  {% csrf_token %}
+  <input type="number" name="quantity" value="1" min="1" />
+  <button type="submit">Додати в корзину</button>
+</form>
+
 {% endblock %}

@@ -11,7 +11,8 @@
         <h1>Магазин товарів</h1>
         <nav>
             <a href="{% url 'product_list' %}">Товари</a> |
-            <a href="{% url 'category_list' %}">Категорії</a>
+            <a href="{% url 'category_list' %}">Категорії</a> |
+            <a href="{% url 'cart_detail' %}">Корзина ({{ cart_count }})</a>
         </nav>
     </header>
 
@@ -25,4 +26,3 @@
     </footer>
 </body>
 </html>
-

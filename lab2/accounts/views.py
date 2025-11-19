@@ -1,4 +1,4 @@
-# accounts/views.py
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login
@@ -51,9 +51,9 @@ def activate(request, uidb64, token):
     if user and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        login(request, user)  # опціонально — автоматично логінити після активації
+        login(request, user)  
         messages.success(request, 'Активація пройшла успішно. Ви увійшли в систему.')
-        return redirect('shop_index')  # або на profile
+        return redirect('shop_index')  
     else:
         messages.error(request, 'Посилання активації недійсне.')
         return redirect('register')

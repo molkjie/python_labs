@@ -22,4 +22,12 @@ urlpatterns = [
     path('categories/<int:pk>/', views.category_detail, name='category_detail'),
     path('categories/<int:pk>/update/', views.category_update, name='category_update'),
     path('categories/<int:pk>/delete/', views.category_delete, name='category_delete'),
+
+    path('cart/', views.cart_detail, name='cart_detail'),
+    path('cart/add/<int:product_id>/', views.add_to_cart, name='cart_add'),
+    path('cart/update/<int:product_id>/', views.cart_update_item, name='cart_update'),
+    path('cart/remove/<int:product_id>/', views.cart_remove, name='cart_remove'),
+    path('cart/clear/', views.cart_clear, name='cart_clear'),
+    # опціонально checkout:
+    path('checkout/', views.checkout, name='checkout'),
 ]
