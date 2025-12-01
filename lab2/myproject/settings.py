@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'shop',
     'accounts', 
     'django.contrib.sites',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +139,13 @@ LOGIN_REDIRECT_URL = 'shop_index' # після логіну
 LOGOUT_REDIRECT_URL = 'login'     # після логауту
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'   # якщо BASE_DIR — Path
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}

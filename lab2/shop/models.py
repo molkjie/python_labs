@@ -20,7 +20,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=255, blank=True, null=True)  # тимчасово без unique=True
+    slug = models.SlugField(max_length=255, blank=True, null=True)  
 
     class Meta:
         verbose_name = 'Товар'
@@ -31,7 +31,7 @@ class Product(models.Model):
         return self.name
 
 
-# shop/models.py (append)
+
 from django.conf import settings
 
 class Cart(models.Model):

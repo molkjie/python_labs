@@ -1,9 +1,8 @@
-# shop/cart.py
+
 from .models import Cart, CartItem, Product
 from django.shortcuts import get_object_or_404
 
-SESSION_CART_KEY = 'cart'  # dict: {str(product_id): quantity}
-
+SESSION_CART_KEY = 'cart'  
 def get_session_cart(request):
     return request.session.get(SESSION_CART_KEY, {})
 

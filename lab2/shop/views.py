@@ -152,7 +152,7 @@ def cart_update_item(request, product_id):
                     CartItem.objects.create(cart=cart, product_id=product_id, quantity=qty)
     else:
         if qty > 0:
-            add_to_session_cart(request, product_id, qty=0)  # ensure key exists
+            add_to_session_cart(request, product_id, qty=0)  
             request.session['cart'][str(product_id)] = qty
             save_session_cart(request, request.session['cart'])
         else:
@@ -211,7 +211,7 @@ def cart_detail(request):
 
 @login_required
 def checkout(request):
-    # простий тестовий checkout: очищає корзину у DB
+    
     cart = Cart.objects.filter(user=request.user).first()
     if cart:
         cart.items.all().delete()
