@@ -87,6 +87,9 @@ DATABASES = {
     'PASSWORD': '12345',
     'HOST': 'localhost',
     'PORT': '5432',
+    'OPTIONS': {
+            'sslmode': 'disable',
+        },
   }
 }
 
